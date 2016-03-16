@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "typings bundle . -o bundle && ts-node test.ts --data test"
+  },
+  "devDependencies": {
+    "ts-node": "^0.6.1",
+    "typings": "^0.7.9",
+    "yargs": "^4.3.1"
+  }
+}

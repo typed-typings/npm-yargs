@@ -7,8 +7,8 @@ declare module yargs {
 
   interface Yargs {
     argv: Argv;
-    (args: string[]): Argv;
-    parse (args: string[]): Argv;
+    <T> (args: string[]): T & Argv;
+    parse <T> (args: string[]): T & Argv;
     alias (key: string, alias: string): Yargs;
     alias (aliases: { [key: string]: string | string[] }): Yargs;
     array (key: string): Yargs;
