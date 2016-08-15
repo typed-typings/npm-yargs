@@ -1,4 +1,4 @@
-declare module yargs {
+declare namespace yargs {
   interface Argv {
     _: string[];
     '$0': string;
@@ -43,6 +43,7 @@ declare module yargs {
     exitProcess (enable: boolean): Yargs;
     fail (fn: (message: string) => any): Yargs;
     group (keys: string | string[], groupName: string): Yargs;
+    global (key: string);
     help (): string;
     help (option?: string, description?: string): Yargs;
     implies (x: string, y: string): Yargs;
@@ -84,6 +85,7 @@ declare module yargs {
     describe?: string;
     description?: string;
     group?: string;
+    global?: boolean;
     nargs?: number;
     requiresArg?: boolean;
     string?: boolean;
