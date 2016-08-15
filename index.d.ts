@@ -8,7 +8,7 @@ declare namespace yargs {
   interface CommandModule {
     command: string;
     describe: string | boolean;
-    builder: Builder | ((yargs: Yargs) => Yargs);
+    builder: Builder;
     handler: (argv: Argv) => any;
   }
 
@@ -20,9 +20,7 @@ declare namespace yargs {
     exclude?: RegExp | ((path: string) => boolean);
   }
 
-  interface Builder {
-    [key: string]: Options;
-  }
+  export type Builder = { [key: string]: Options } | ((yargs: Yargs) => Yargs);
 
   interface Yargs {
     argv: Argv;

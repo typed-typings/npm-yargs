@@ -1,5 +1,5 @@
-/// <reference path="bundle/main.d.ts" />
-/// <reference path="typings/main.d.ts" />
+/// <reference path="typings/index.d.ts" />
+/// <reference path="bundle.d.ts" />
 
 import yargs = require('yargs')
 import assert = require('assert')
@@ -9,3 +9,9 @@ const args = yargs
   .parse<{ data: string }>(process.argv.slice(2))
 
 assert.equal(args.data, 'test')
+
+let x: yargs.Builder = {
+  hello: {
+    global: true
+  }
+}
