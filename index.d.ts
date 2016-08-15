@@ -5,6 +5,21 @@ declare namespace yargs {
     [key: string]: any;
   }
 
+  interface CommandModule {
+    command: string;
+    describe: string | boolean;
+    builder: { [key: string]: Options } | ((yargs: Yargs) => Yargs);
+    handler: (argv: Argv) => any;
+  }
+
+  interface CommandDirOptions {
+    recurse?: boolean;
+    extensions?: string[];
+    visit?: (commandObject: CommandModule, pathToFile: string, filename: string) => CommandModule | boolean | void;
+    include?: RegExp | ((path: string) => boolean);
+    exclude?: RegExp | ((path: string) => boolean);
+  }
+
   interface Yargs {
     argv: Argv;
     <T> (args: string[]): T & Argv;
@@ -16,6 +31,7 @@ declare namespace yargs {
     check (fn: (argv: Argv, aliases: { [key: string]: string[] }) => any): Yargs;
     choices (key: string, choices: (string | number)[]): Yargs;
     command (command: string, description: string, fn?: (yargs: Yargs, argv: Argv) => void): Yargs;
+    commandDir (directory: string, opts?: CommandDirOptions): Yargs;
     completion (cmd: string, fn?: SyncCompletionFunction | AsyncCompletionFunction): Yargs;
     completion (cmd: string, description?: string, fn?: SyncCompletionFunction | AsyncCompletionFunction): Yargs;
     config (key: string, description?: string): Yargs;
