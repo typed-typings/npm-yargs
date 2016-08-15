@@ -32,7 +32,10 @@ declare namespace yargs {
     boolean (key: string): this;
     check (fn: (argv: Argv, aliases: { [key: string]: string[] }) => any): this;
     choices (key: string, choices: (string | number)[]): this;
-    command (command: string, description: string, fn?: (yargs: this, argv: Argv) => void): this;
+    command (command: string, description: string): this;
+    command (command: string, description: string, fn: (yargs: this, argv: Argv) => any): this;
+    command (command: string, description: string, module: CommandModule): this;
+    command (module: CommandModule): this;
     commandDir (directory: string, opts?: CommandDirOptions): this;
     completion (cmd: string, fn?: SyncCompletionFunction | AsyncCompletionFunction): this;
     completion (cmd: string, description?: string, fn?: SyncCompletionFunction | AsyncCompletionFunction): this;
