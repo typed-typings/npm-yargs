@@ -8,7 +8,7 @@ declare namespace yargs {
   interface CommandModule {
     command: string;
     describe: string | boolean;
-    builder: { [key: string]: Options } | ((yargs: Yargs) => Yargs);
+    builder: Builder | ((yargs: Yargs) => Yargs);
     handler: (argv: Argv) => any;
   }
 
@@ -18,6 +18,10 @@ declare namespace yargs {
     visit?: (commandObject: CommandModule, pathToFile: string, filename: string) => CommandModule | boolean | void;
     include?: RegExp | ((path: string) => boolean);
     exclude?: RegExp | ((path: string) => boolean);
+  }
+
+  interface Builder {
+    [key: string]: Options;
   }
 
   interface Yargs {
@@ -68,8 +72,8 @@ declare namespace yargs {
     nargs (key: string, count: number): this;
     option (key: string, options: Options): this;
     options (key: string, options: Options): this;
-    option (options: { [key: string]: Options }): this;
-    options (options: { [key: string]: Options }): this;
+    option (options: Builder): this;
+    options (options: Builder): this;
     requiresArg (key: string): this;
     reset (): this;
     showCompletionScript (): string;
