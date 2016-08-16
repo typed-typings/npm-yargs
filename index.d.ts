@@ -40,6 +40,7 @@ declare namespace yargs {
     completion(cmd: string, fn?: SyncCompletionFunction | AsyncCompletionFunction): this;
     completion(cmd: string, description?: string, fn?: SyncCompletionFunction | AsyncCompletionFunction): this;
     config(key: string, description?: string): this;
+    config(config: { [key: string]: any }): this;
     count(key: string): this;
     default(key: string, value: any, description?: string): this;
     default(defaults: { [key: string]: any }): this;
