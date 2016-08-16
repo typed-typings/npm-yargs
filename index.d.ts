@@ -64,7 +64,7 @@ declare namespace yargs {
     exitProcess (enable: boolean): this;
     fail (fn: (message: string) => any): this;
     group (keys: string | string[], groupName: string): this;
-    global (key: string);
+    global (key: string): this;
     help (): string;
     help (option?: string, description?: string): this;
     implies (x: string, y: string): this;
