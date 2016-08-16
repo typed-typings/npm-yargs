@@ -1,17 +1,18 @@
 /// <reference path="typings/index.d.ts" />
 /// <reference path="bundle.d.ts" />
 
-import yargs = require('yargs')
-import assert = require('assert')
+import yargs = require('yargs');
+import assert = require('assert');
 
 const args = yargs
   .demand('data', 'Give me datas')
-  .parse<{ data: string }>(process.argv.slice(2))
+  .parse<{ data: string }>(process.argv.slice(2));
 
-assert.equal(args.data, 'test')
+assert.equal(args.data, 'test');
 
-let x: yargs.Builder = {
+let builder: yargs.Builder = {
   hello: {
     global: true
   }
-}
+};
+yargs.command({command: 'hello', describe: 'say hello', handler: () => console.log('hello'), builder});
