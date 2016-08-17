@@ -191,7 +191,16 @@ declare namespace yargs {
      */
     count(key: string): this;
 
+    /**
+     * Set argv[key] to value if no option was specified in process.argv. But wait, there’s more! The default value
+     * can be a function which returns a value. The name of the function will be used in the usage
+     * string. Optionally, description can also be provided and will take precedence over displaying
+     * the value in the usage instructions
+     */
     default(key: string, value: any, description?: string): this;
+    /**
+     * Optionally .default() can take an object that maps keys to default values.
+     */
     default(defaults: { [key: string]: any }): this;
 
     /**
