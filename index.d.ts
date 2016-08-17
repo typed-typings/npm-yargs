@@ -203,7 +203,6 @@ declare namespace yargs {
     demand(count: number, msg?: string): this;
     demand(count: number, max?: number, msg?: string): this;
 
-
     /** An alias for demand(). See docs there. */
     require(key: string | string[], msg?: string): this;
     require(key: string | string[], required?: boolean): this;
