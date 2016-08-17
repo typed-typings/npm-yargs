@@ -150,26 +150,29 @@ declare namespace yargs {
     commandDir(directory: string, opts?: CommandDirOptions): this;
 
     /**
-     * Enable bash-completion shortcuts for commands and options. cmd: When present in argv._, will result in the
-     * .bashrc completion script being outputted. To enable bash completions, concat the generated script to your
-     * .bashrc or .bash_profile.
-     * @param fn Rather than relying on yargs’ default completion functionality, which shiver me timbers is pretty
-     * awesome, you can provide your own completion method. If invoked without parameters, .completion() will make
-     * completion the command to output the completion script.
+     * Enable bash-completion shortcuts for commands and options.
+     * @param cmd When present in argv._, will result in the .bashrc completion script being
+     * outputted. To enable bash completions, concat the generated script to your .bashrc or
+     * .bash_profile.
+     * @param fn Rather than relying on yargs’ default completion functionality, which shiver me
+     * timbers is pretty awesome, you can provide your own completion method. If invoked without
+     * parameters, .completion() will make completion the command to output the completion script.
      */
-    completion(cmd: string, fn?: SyncCompletionFunction | AsyncCompletionFunction): this;
+    completion(cmd?: string, fn?: SyncCompletionFunction | AsyncCompletionFunction): this;
 
     /**
-     * Enable bash-completion shortcuts for commands and options. cmd: When present in argv._, will result in the
-     * .bashrc completion script being outputted. To enable bash completions, concat the generated script to your
-     * .bashrc or .bash_profile.
-     * @param description Provide a description in your usage instructions for the command that generates bash
-     * completion scripts.
-     * @param fn Rather than relying on yargs’ default completion functionality, which shiver me timbers is pretty
-     * awesome, you can provide your own completion method. If invoked without parameters, .completion() will make
-     * completion the command to output the completion script.
+     * Enable bash-completion shortcuts for commands and options.
+     * @param cmd When present in argv._, will result in the .bashrc completion script being
+     * outputted. To enable bash completions, concat the generated script to your .bashrc or
+     * .bash_profile.
+     * @param description Provide a description in your usage instructions for the command that
+     * generates bash completion scripts.
+     * @param fn Rather than relying on yargs’ default completion functionality, which shiver me
+     * timbers is pretty awesome, you can provide your own completion method. If invoked without
+     * parameters, .completion() will make completion the command to output the completion script.
      */
-    completion(cmd: string, description?: string, fn?: SyncCompletionFunction | AsyncCompletionFunction): this;
+    completion(cmd: string, description: string, fn?: SyncCompletionFunction | AsyncCompletionFunction): this;
+
     /**
      * Tells the parser that if the option specified by key is passed in, it should be interpreted as a path to a JSON
      * config file. The file is loaded and parsed, and its properties are set as arguments. If invoked without
