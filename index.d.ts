@@ -28,7 +28,7 @@ declare namespace yargs {
     /**
      * a function which will be passed the parsed argv.
      */
-    handler: (argv: Argv) => any;
+    handler: Handler;
   }
 
   interface CommandDirOptions {
@@ -61,6 +61,9 @@ declare namespace yargs {
   }
 
   export type Builder = { [key: string]: Options } | ((yargs: Yargs) => Yargs);
+  export interface Handler {
+    (argv: Argv): any;
+  }
 
   export interface Yargs {
 
@@ -128,9 +131,8 @@ declare namespace yargs {
      * don’t show up in the help output and aren’t available for completion. Optionally, you can provide a builder
      * object to give hints about the options that your command accepts.
      */
-    command(command: string, description: string | boolean): this;
-    command(command: string, description: string | boolean, fn: (yargs: this, argv: Argv) => any): this;
-    command(command: string, description: string | boolean, module: CommandModule): this;
+    command(command: string, description: string | boolean, builder?: Builder, handler?: Handler): this;
+    command(command: string, description: string | boolean, module?: CommandModule): this;
     command(module: CommandModule): this;
 
     /**
