@@ -181,7 +181,7 @@ declare namespace yargs {
      * custom parser. The parsing function must be synchronous, and should return an object containing key value pairs
      * or an error.
      */
-    config(key: string, description: string, parseFn?: (configPath: string) => { [key: string]: any }): this;
+    config(key?: string, description?: string, parseFn?: (configPath: string) => { [key: string]: any }): this;
     config(key: string, parseFn?: (configPath: string) => { [key: string]: any }): this;
     config(config: { [key: string]: any }): this;
 
